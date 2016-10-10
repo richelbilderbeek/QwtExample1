@@ -13,9 +13,16 @@ win32 {
 macx {
   # Mac only
   message("Desktop application, no effc++, built for Mac")
-  QMAKE_CXXFLAGS = -mmacosx-version-min=10.7 -std=gnu0x -stdlib=libc+
-  CONFIG +=c++1y
+
+  #QMAKE_CXX = g++-5
+  #QMAKE_LINK = g++-5
+  #QMAKE_CC = gcc-5
+  #QMAKE_CXXFLAGS += -Wall -Wextra # -Werror
+  #QMAKE_CXXFLAGS = -std=c++11
+  CONFIG += c++11
 }
+
+QMAKE_CXXFLAGS += -std=c++11
 
 unix:!macx{
   # Linux only
@@ -52,6 +59,5 @@ SOURCES += main.cpp
 
 # Qwt
 #LIBS += -lqwt
-include(../RibiLibraries/Qwt.pri)
-
-
+include(../RibiLibraries/Qwt_6_1.pri)
+#DEFINES += QT_NO_PRINTER
