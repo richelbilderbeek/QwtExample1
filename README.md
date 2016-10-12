@@ -9,6 +9,8 @@
 
 Qwt example 1: scatter plot is a Qwt example that shows how to create a scatter plot.
 
+![Screenshot](QwtExample1.png)
+
 ## Run locally
 
 ```
