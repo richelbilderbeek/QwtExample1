@@ -1,5 +1,6 @@
 #include <cmath>
 #include <QApplication>
+#include <QTimer>
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>
 #include <qwt_point_data.h>
@@ -8,7 +9,7 @@ int main(int argc, char **argv)
 {
   QApplication a(argc, argv);
 
-  QwtPlot plot(QwtText("CppQwtExample1"));
+  QwtPlot plot(QwtText("QwtExample1"));
   plot.setGeometry(0,0,640,400);
   plot.setAxisScale(QwtPlot::xBottom, 0.0,2.0 * M_PI);
   plot.setAxisScale(QwtPlot::yLeft,-1.0,1.0);
@@ -26,6 +27,14 @@ int main(int argc, char **argv)
   curve.attach(&plot);
 
   plot.show();
+
+  //In demo mode, close after 1 second
+  if (argc == 2 && argv[1] == std::string("--demo"))
+  {
+    QTimer * const timer = new QTimer;
+    QObject::connect(timer, SIGNAL(timeout()), &plot, SLOT(close()));
+    timer->start(1000);
+  }
 
   return a.exec();
 }
