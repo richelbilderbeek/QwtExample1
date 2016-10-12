@@ -11,6 +11,8 @@ Qwt example 1: scatter plot is a Qwt example that shows how to create a scatter 
 
 ![Screenshot](QwtExample1.png)
 
+Other Qwt examples can be found at [richelbilderbeek's Qwt GitHub](https://github.com/richelbilderbeek/Qwt).
+
 ## Run locally
 
 ```
